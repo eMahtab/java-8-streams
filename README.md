@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class App {
 	public static void main(String[] args) {
 		int[] nums = {0,1,2,3,4,5,0,1,2,3,4,5};
-		int sum1 = IntStream.of(nums).sum();
+		int sum1 = IntStream.of(nums).sum(); // Or IntStream.of(0,1,2,3,4,5,0,1,2,3,4,5).sum();
 		int sum2 = Arrays.stream(nums).sum();
 		System.out.println(sum1 + "," + (sum1==sum2));  // 30,true
 	}
