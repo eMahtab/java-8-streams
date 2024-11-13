@@ -39,6 +39,22 @@ public class App {
 	}
 }
 ```
+### Using map() and collecting the proccessed list
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class App {
+	public static void main(String[] args) {
+		List<String> words = Arrays.asList("Java", "8", "Streams");
+		List<Integer> wordLengths = 
+		    words.stream()
+		         .map(str -> str.length())
+		         .collect(Collectors.toList());
+		System.out.println(wordLengths); // [4,1,7]
+	}
+}
+```
 
 ### Stream of Objects 
 ```java
