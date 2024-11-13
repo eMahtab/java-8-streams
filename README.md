@@ -91,3 +91,27 @@ mapping 4
 Output :[4, 16]
 ```
 
+## Using flatMap() to flatten a stream of nested collection objects e.g. List<List<Integer>> listOfLists
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class App {
+	public static void main(String[] args) {
+		 // List of lists of integers
+        List<List<Integer>> listOfLists = Arrays.asList(
+            Arrays.asList(1, 2, 3),
+            Arrays.asList(4, 5, 6),
+            Arrays.asList(7, 8, 9)
+        );
+
+        // Using flatMap to flatten the list of lists into a single list
+        List<Integer> flattenedList = listOfLists.stream()
+                                                 .flatMap(list -> list.stream()) // Flatten the inner lists
+                                                 .collect(Collectors.toList());
+
+        // Print the flattened list
+        System.out.println(flattenedList);
+	}
+}
+```
