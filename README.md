@@ -40,7 +40,7 @@ public class App {
 }
 ```
 
-###
+### Stream of Objects 
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -64,3 +64,14 @@ public class App {
 	}
 }
 ```
+### Output
+```
+filtering 1
+filtering 2
+mapping 2
+filtering 3
+filtering 4
+mapping 4
+Output :[4, 16]
+```
+
