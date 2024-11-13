@@ -1,1 +1,1 @@
-# java-8-streams
+# Java 8 Streams
