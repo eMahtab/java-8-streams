@@ -106,12 +106,13 @@ public class App {
         );
 
         // Using flatMap to flatten the list of lists into a single list
-        List<Integer> flattenedList = listOfLists.stream()
-                                                 .flatMap(list -> list.stream()) // Flatten the inner lists
-                                                 .collect(Collectors.toList());
+        List<Integer> flattenedList = 
+        		listOfLists.stream()
+                           .flatMap(list -> list.stream()) // Flatten the inner lists
+                           .collect(Collectors.toList());
 
         // Print the flattened list
-        System.out.println(flattenedList);
+        System.out.println(flattenedList); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
 	}
 }
 ```
