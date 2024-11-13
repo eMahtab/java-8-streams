@@ -116,3 +116,20 @@ public class App {
 	}
 }
 ```
+
+## Using flatMap() to create stream of single(atomic) elements e.g. number, string etc.
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class App {
+	public static void main(String[] args) {
+		List<String> sentences = Arrays.asList("Hello World", "Java Streams", "flatMap Example");
+		List<String> words = sentences.stream()
+		                              .flatMap(sentence -> Arrays.stream(sentence.split(" ")))
+		                              .collect(Collectors.toList());
+
+		System.out.println(words); // [Hello, World, Java, Streams, flatMap, Example]
+	}
+}
+```
