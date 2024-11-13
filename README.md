@@ -25,3 +25,17 @@ public class App {
 	}
 }
 ```
+
+### Filter elements
+```java
+import java.util.stream.IntStream;
+public class App {
+	public static void main(String[] args) {
+		int[] nums = {0,1,2,3,4,5,0,1,2,3,4,5};
+		IntStream.of(nums)
+		         .distinct()
+		         .filter((num) -> num % 2 == 0)
+		         .forEach((num) -> System.out.print(num+", ")); // 0, 2, 4, 
+	}
+}
+```
