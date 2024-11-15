@@ -133,3 +133,61 @@ public class App {
 	}
 }
 ```
+
+## Using toMap() Collector to create a Map after processing the stream
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+class Employee {
+    private int id;
+    private String name;
+    private String department;
+    public Employee(int id, String name, String department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+    }
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getDepartment() {
+        return department;
+    }
+    @Override
+    public String toString() {
+        return "{id=" + id + ", name='" + name + "', department='" + department + "'}";
+    }
+}
+
+public class App {
+    public static void main(String[] args) {
+        List<Employee> employees = Arrays.asList(
+            new Employee(101, "Alice", "HR"),
+            new Employee(102, "Bob", "Finance"),
+            new Employee(103, "Charlie", "IT"),
+            new Employee(104, "David", "HR")
+        );
+
+        // Convert the list to a map with employee ID as key and employee name as value
+        Map<Integer, String> employeeMap = employees.stream()
+            .collect(Collectors.toMap((emp) -> emp.getId(), (emp) -> emp.getName()));
+
+        System.out.println("Employee Map: " + employeeMap);
+        // Employee Map: {101=Alice, 102=Bob, 103=Charlie, 104=David}
+
+        // Another use case: Creating a map with employee ID as key and the whole Employee object as value
+        Map<Integer, Employee> employeeDetailMap = employees.stream()
+            .collect(Collectors.toMap((emp) -> emp.getId(), (emp) -> emp));
+
+        System.out.println("Employee Detail Map: " + employeeDetailMap);
+        // Employee Detail Map: {101={id=101, name='Alice', department='HR'}, 102={id=102, name='Bob', department='Finance'}, 103={id=103, name='Charlie', department='IT'}, 104={id=104, name='David', department='HR'}}
+    }
+}
+
+```
