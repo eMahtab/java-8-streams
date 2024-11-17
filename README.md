@@ -13,6 +13,15 @@ public class App {
 	}
 }
 ```
+### range() and rangeClosed()
+```java
+public class App {
+    public static void main(String[] args) {
+       System.out.println("Sum :"+IntStream.range(1, 5).sum());  // Sum :10
+       System.out.println("Sum :"+IntStream.rangeClosed(1, 5).sum());  // Sum :15
+    }
+}
+```
 ### Removing duplicates
 ```java
 import java.util.stream.IntStream;
