@@ -126,6 +126,35 @@ public class App {
 }
 ```
 
+## Using flatMap() to flatten a stream of arrays e.g. List<Integer[]> listOfArrays
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Test {
+	public static void main(String[] args) {
+		 
+        List<Integer[]> listOfArrays = Arrays.asList(
+            new Integer[] {3, 2, 1},
+            new Integer[] {6, 5, 4},
+            new Integer[] {9, 8, 7}
+        );
+
+        // Using flatMap to flatten the list of arrays into a single list
+        List<Integer> flattenedList = 
+        		listOfArrays.stream()
+                           .flatMap(array -> Stream.of(array)) // Flatten the array
+                           .collect(Collectors.toList());
+
+        // Print the flattened list
+        System.out.println(flattenedList); //[3, 2, 1, 6, 5, 4, 9, 8, 7]
+	}
+}
+```
+
 ## Using flatMap() to create stream of single(atomic) elements e.g. number, string etc.
 ```java
 import java.util.Arrays;
