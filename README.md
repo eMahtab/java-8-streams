@@ -229,3 +229,19 @@ public class App {
 }
 
 ```
+
+## Sorting the stream elements with custom comparator
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class Test {
+	public static void main(String[] args) {
+        List<String> words = Arrays.asList("banana", "cherry", "apple", "dates");
+        List<String> sorted = words.stream()
+        		                   .sorted((s1, s2) -> s2.compareTo(s1))
+        		                   .toList();
+        System.out.println(sorted); // [dates, cherry, banana, apple]
+	}
+}
+```
