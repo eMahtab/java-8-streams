@@ -126,6 +126,28 @@ public class App {
 }
 ```
 
+```java
+import java.util.List;
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+        List<List<Integer>> listOfLists = List.of(List.of(1, 2, 3), List.of(4, 5, 6));
+
+        listOfLists.stream()
+                .flatMap(list -> list.stream())
+                .forEach(System.out::println);
+
+        List<Integer[]> listOfArrays = List.of(new Integer[] { 1, 2, 3 }, new Integer[] { 4, 5, 6 });
+        listOfArrays.stream()
+                .flatMap(array -> Arrays.stream(array))
+                .forEach(System.out::println);
+
+    }
+}
+```
+
 ## Using flatMap() to flatten a stream of arrays e.g. List<Integer[]> listOfArrays
 
 ```java
