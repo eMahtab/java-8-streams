@@ -1,5 +1,24 @@
 # Java 8 Streams
 
+## Creating stream from primitive type (int, long, double)
+
+Java 8 comes with IntStream, LongStream, DoubleStream to work with stream of primitive types.
+```
+import java.util.stream.IntStream;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arr = {1,3,6,2,5,4,5};
+        System.out.println(IntStream.of(arr).sum()); // 25
+        System.out.println(IntStream.of(arr).average().getAsDouble()); // 3.7142857142857144
+        System.out.println(IntStream.of(arr).min().getAsInt()); // 1
+        System.out.println(IntStream.of(arr).max().getAsInt()); // 6
+        IntStream.of(arr).sorted().forEach(num -> System.out.print(num+", ")); // 1, 2, 3, 4, 5, 5, 6, 
+    }
+}
+```
+
 ### Sum stream elements
 ```java
 import java.util.Arrays;
