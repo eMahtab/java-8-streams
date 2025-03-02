@@ -3,7 +3,8 @@
 ## Creating stream from primitive type (int, long, double)
 
 Java 8 comes with IntStream, LongStream, DoubleStream to work with stream of primitive types.
-```
+
+```java
 import java.util.stream.IntStream;
 
 public class Main {
