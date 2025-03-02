@@ -20,6 +20,16 @@ public class Main {
 }
 ```
 
+## Stream interface mapToInt(), mapToLong() and mapToDouble() function which returns IntStream, LongStream, DoubleStream  
+
+```java
+IntStream mapToInt(ToIntFunction<? super T> mapper)
+
+LongStream mapToLong(ToLongFunction<? super T> mapper)
+
+DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)
+```
+
 ### Sum stream elements
 ```java
 import java.util.Arrays;
