@@ -68,6 +68,51 @@ public class App {
 	}
 }
 ```
+
+## Java 8 streams can't be reused  
+After the terminal operation is performed, the stream pipeline is consumed and can't be used anymore.
+  
+```java
+import java.util.stream.*;
+
+public class Main{
+  public static void main(String[] args) {
+    int[] digits = {0, 1, 2, 3, 4 , 5, 6, 7, 8, 9};
+    IntStream s = IntStream.of(digits);
+    long n = s.count();
+    System.out.println(s.findFirst()); // An exception will be thrown
+  }
+}
+  
+```  
+## Output :
+```
+Exception in thread "main" java.lang.IllegalStateException: stream has already been operated upon or closed
+    at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:229)
+    at java.base/java.util.stream.IntPipeline.findFirst(IntPipeline.java:528)
+    at Main.main(Main.java:8)  
+  
+```
+
+```java
+import java.util.stream.*;
+
+public class Main{
+  public static void main(String[] args) {
+    int[] digits = {20, 1, 2, 3, 4 , 5, 6, 7, 8, 9};
+    long n = IntStream.of(digits).count();
+    System.out.println("Count : " + n);
+    System.out.println(IntStream.of(digits).findFirst().getAsInt());
+  }
+} 
+```  
+
+## Output :
+```
+Count : 10
+20  
+```
+
 ### Using map() and collecting the proccessed list
 ```java
 import java.util.Arrays;
