@@ -30,6 +30,15 @@ LongStream mapToLong(ToLongFunction<? super T> mapper)
 DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)
 ```
 
+## Arrays.stream()
+```
+public static IntStream stream(int[] array)
+
+public static LongStream stream(long[] array)
+
+public static DoubleStream stream(double[] array)
+```
+
 ### Sum stream elements
 ```java
 import java.util.Arrays;
