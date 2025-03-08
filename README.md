@@ -39,6 +39,17 @@ public static LongStream stream(long[] array)
 public static DoubleStream stream(double[] array)
 ```
 
+## Converting stream of primitives to stream of wrapper types
+
+By calling boxed() method on a primitve stream can be converted to stream of wrapper types.
+```
+IntStream's -> Stream<Integer> boxed()
+
+LongStream's -> Stream<Long> boxed()
+
+DoubleStream's -> Stream<Double> boxed()
+```
+
 ### Sum stream elements
 ```java
 import java.util.Arrays;
